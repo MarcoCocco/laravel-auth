@@ -24,7 +24,7 @@ class ProjectSeeder extends Seeder
 
             $project->title = $faker->sentence(3);
             $project->description = $faker->text(400);
-            $project->link = $faker->url();
+            $project->github_link = $faker->url();
             $project->language = $faker->word();
             $project->creation_date = $faker->date();
             $project->is_complete = $faker->boolean();
