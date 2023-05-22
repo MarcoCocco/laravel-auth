@@ -1,5 +1,5 @@
-@extends('layouts/admin');
+@extends('layouts/admin')
 
 @section('content')
-Sezione Show
+<h2>Visualizzazione Progetto nel dettaglio</h2>
 @endsection

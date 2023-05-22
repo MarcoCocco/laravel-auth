@@ -21,7 +21,7 @@
         <td>{{$project->github_link}}</td>
         <td>{{$project->language}}</td>
         <td>{{$project->creation_date}}</td>
-        <td>{{$project->is_complete}}</td>
+        <td>{{$project->is_complete ? 'Sì' : 'No'}}</td>
         <td>{{$project->slug}}</td>
         <td><a href="{{route('admin.projects.show', $project->slug)}}"><i class="fa-solid fa-magnifying-glass"></i></a></td>
       </tr>
