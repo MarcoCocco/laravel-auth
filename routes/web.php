@@ -20,6 +20,7 @@ Route::get('/', function () {
     return view('homepage');
 });
 
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -27,8 +28,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function() {
-    Route::get('/', [DashboardController::class, 'home']);
     Route::resource('projects', ProjectController::class)->parameters(['projects' => 'project:slug']);
+    Route::get('/dashboard', [DashboardController::class, 'home']);
 });
 
 
