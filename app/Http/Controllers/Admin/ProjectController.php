@@ -105,16 +105,28 @@ class ProjectController extends Controller
         return redirect()->route('admin.projects.index');
     }
 
-     // validazione
-     private function validation($formData) {
+    // validazione
+    private function validation($formData)
+    {
         $validator = Validator::make($formData, [
-            'title' => 'required|max:255|min:3',
-            'description' => 'required'
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'github_link' => 'required|string|max:150',
+            'language' => 'required|string|max:25',
+            'creation_date' => 'required|date',
+            'is_complete' => 'required|boolean',
         ], [
-            'title.required' => 'Devi inserire un titolo',
-            'title.max' => 'Il titolo deve avere massimo :max caratteri',
-            'title.min' => 'Il titolo deve avere minimo :min caratteri',
-            'description.required' => 'La descrizione deve contenere qualcosa',
+            'title.required' => 'Devi inserire un titolo.',
+            'title.max' => 'Il titolo deve avere massimo :max caratteri.',
+            'description.required' => 'La descrizione deve contenere qualcosa.',
+            'github_link.required' => 'Devi inserire un link GitHub.',
+            'github_link.max' => 'Il link GitHub deve avere massimo :max caratteri.',
+            'language.required' => 'Devi inserire un linguaggio.',
+            'language.max' => 'Il linguaggio inserito deve avere massimo :max caratteri.',
+            'creation_date.required' => 'Devi inserire una data di creazione.',
+            'creation_date.date' => 'La data di creazione deve essere valida.',
+            'is_complete.required' => 'Devi specificare se il progetto è completo o meno.',
+            'is_complete.boolean' => 'Il valore del campo deve essere "Sì" o "No".',
         ])->validate();
 
         return $validator;

@@ -65,8 +65,8 @@
             <label for="is_complete">Il progetto è completo?</label>
             <select name="is_complete" id="is_complete" class="form-select @error('is_complete') is-invalid @enderror" aria-label="Default select example">
                 <option selected>Seleziona</option>
-                <option value="1">Sì</option>
-                <option value="0">No</option>
+                <option value="1" @if (old('is_complete') == '1') selected @endif>Sì</option>
+                <option value="0" @if (old('is_complete') == '0') selected @endif>No</option>
               </select>
             @error('is_complete')
                 <div class="invalid-feedback">
